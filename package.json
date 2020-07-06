@@ -1,0 +1,32 @@
+{
+    "name": "react-comic",
+    "version": "0.1.0",
+    "main": "lib/cjs/index.js",
+    "module": "lib/es/index.js",
+    "types": "lib/ts/index.d.ts",
+    "repository": "https://github.com/ivoilic/react-comic.git",
+    "author": "Ivo Ilić <admin@ivoilic.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "parcel src/index.html",
+        "build": "yarn lib:build",
+        "lib:build": "yarn lib:build-cjs && yarn lib:build-es && yarn lib:build-types",
+        "lib:build-cjs": "babel ./src -d lib/cjs --ignore './src/__tests__' --extensions .ts,.tsx --config-file ./babel.config.cjs.json",
+        "lib:build-es": "babel ./src -d lib/es --ignore './src/__tests__' --extensions .ts,.tsx --config-file ./babel.config.json",
+        "lib:build-types": "tsc -p tsconfig.types.json"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.10.4",
+        "@babel/core": "^7.10.4",
+        "@babel/plugin-proposal-class-properties": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "@babel/preset-react": "^7.10.4",
+        "@babel/preset-typescript": "^7.10.4",
+        "babel-loader": "^8.1.0",
+        "parcel-bundler": "^1.12.4",
+        "prettier": "^2.0.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "typescript": "^3.9.6"
+    }
+}
